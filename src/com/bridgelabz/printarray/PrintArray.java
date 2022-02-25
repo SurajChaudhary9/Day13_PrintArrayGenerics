@@ -1,6 +1,6 @@
 /**
- * UC2 :PROBLEM STATEMENT
- * Given an array of Integer, Double and Character, write a program to print the UC 2 same using Generics
+ * UC3 :PROBLEM STATEMENT
+ * Given an array of Integer, Double and Character, write a program to print the UC 2 same using Generics Class
  */
 
 /**
@@ -10,9 +10,20 @@
 // integer array printing
 package com.bridgelabz.printarray;
 
-public class PrintArray {
-	private static <t> void toPrint(t[] inputArray) {
-		for (t element : inputArray) {
+public class PrintArray<T> {
+
+	private T[] inputArray;
+
+	public PrintArray(T[] inputArray) {
+		this.inputArray = inputArray;
+	}
+
+	public void toPrint() {
+		PrintArray.toPrint(this.inputArray);
+	}
+
+	private static <E> void toPrint(E[] inputArray) {
+		for (E element : inputArray) {
 			System.out.println(element);
 		}
 		System.out.println();
@@ -20,15 +31,15 @@ public class PrintArray {
 
 	public static void main(String[] args) {
 
-		System.out.println("___________Welcome to Printing Array using Java Generics___________");
+		System.out.println("__________Welcome to Printing Array using Java Generics___________");
 
-		Integer[] a = { 1, 2, 3 };
-		Double[] b = { 1.2, 1.2, 1.3 };
-		Character[] c = { 'a', 's', 'h', 'i', 'k', 'a' };
+		Integer[] integerArray = { 1, 2, 3 };
+		Double[] doubleArray = { 1.2, 1.2, 1.3 };
+		Character[] characterArray = { 'a', 's', 'h', 'i', 'k', 'a' };
 
-		toPrint(a);
-		toPrint(b);
-		toPrint(c);
+		new PrintArray(integerArray).toPrint();
+		PrintArray.toPrint(doubleArray);
+		PrintArray.toPrint(characterArray);
 
 	}
 
